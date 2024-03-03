@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+<!--    app:startDestination="@id/HomeFragment">-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/HomeFragment"-->
+<!--        android:name="com.appadore.ui.fragment.HomeFragment"-->
+<!--        android:label="HomeFragment"-->
+<!--        tools:layout="@layout/fragment_home">-->
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_detailFragment"-->
+<!--            app:destination="@id/DetailFragment" />-->
+
+<!--        <argument-->
+<!--            android:name="value"-->
+<!--            android:defaultValue=""-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true" />-->
+
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/DetailFragment"-->
+<!--        android:name="com.appadore.ui.fragment.FirstFragment"-->
+<!--        android:label="HomeFragment"-->
+<!--        tools:layout="@layout/fragment_first">-->
+<!--&lt;!&ndash;        <action&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/action_mobileFragment_to_OTPFragment"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:destination="@id/OTPFragment" />&ndash;&gt;-->
+
+<!--        <argument-->
+<!--            android:name="value"-->
+<!--            android:defaultValue=""-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true" />-->
+
+<!--    </fragment>-->
+
+</navigation>
