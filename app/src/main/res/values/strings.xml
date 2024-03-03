@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Appadore</string>
+    <string name="no_net">Network Error</string>
+    <string name="ok">OK</string>
+    <string name="head">Group</string>
+    <string name="edit">Edit</string>
+    <string name="head_about">About Group</string>
+
+</resources>
