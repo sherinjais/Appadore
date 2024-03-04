@@ -19,9 +19,8 @@ object RetrofitBuilder {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getOkHttpClient()!!)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build()
+               .build()
     }
-
     private fun getOkHttpClient(): OkHttpClient? {
         sslSocketFactory = sslContext?.getSocketFactory()
         val okHttpClientBuilder = OkHttpClient().newBuilder()

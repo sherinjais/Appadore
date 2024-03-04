@@ -3,13 +3,11 @@ package com.appadore.ui.main.view.activity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.appadore.R
 import com.appadore.data.api.ApiHelper
 import com.appadore.data.api.RetrofitBuilder
-import com.appadore.databinding.ActivityDetailBinding
 import com.appadore.databinding.ActivityEditBinding
-import com.appadore.databinding.ActivityMainBinding
 import com.appadore.ui.base.DetailViewModelFactory
 import com.appadore.ui.main.viewmodel.DetailViewModel
 import com.bumptech.glide.Glide
@@ -61,15 +59,14 @@ class EditActivity : BaseActivity(),View.OnClickListener {
     }
 
     private fun setupViewModel() {
-        viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProvider(
             this,
-            DetailViewModelFactory(ApiHelper(RetrofitBuilder.apiService,this),this)
-        )[DetailViewModel::class.java]
-
+            DetailViewModelFactory(ApiHelper(RetrofitBuilder.apiService, this), this)
+        ).get(DetailViewModel::class.java)
     }
 
     override fun onClick(v: View?) {
-        val id =v!!.id
+        val id =v?.id
         when(id){
             R.id.back->{
                 finish()
@@ -81,10 +78,6 @@ class EditActivity : BaseActivity(),View.OnClickListener {
                 finish()
 
             }
-//            R.id.img_delete_data->{
-//                viewModel.deleteData(this.id)
-//                finish()
-//            }
         }
     }
 }

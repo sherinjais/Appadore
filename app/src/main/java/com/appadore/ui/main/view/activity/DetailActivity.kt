@@ -4,12 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.appadore.R
 import com.appadore.data.api.ApiHelper
 import com.appadore.data.api.RetrofitBuilder
 import com.appadore.databinding.ActivityDetailBinding
-import com.appadore.databinding.ActivityMainBinding
 import com.appadore.ui.base.DetailViewModelFactory
 import com.appadore.ui.main.viewmodel.DetailViewModel
 import com.bumptech.glide.Glide
@@ -37,7 +36,6 @@ class DetailActivity : BaseActivity(),View.OnClickListener {
         viewModel.getParticularData(blogId)
             .observe(this, Observer {
                 if(it.isNotEmpty()){
-                    setData(it[0].name,it[0].bio)
                     binding.name.text=it[0].name
                     binding.role.text=it[0].userStatus
                     binding.particip.text=it[0].participantCount.toString()
@@ -57,20 +55,16 @@ class DetailActivity : BaseActivity(),View.OnClickListener {
     }
 
     private fun setUpUI() {
-//        binding.imgUpdate.setOnClickListener(this)
-//        binding.imgDeleteData.setOnClickListener(this)
-
         binding.back.setOnClickListener(this)
         binding.tvEdit.setOnClickListener(this)
 
     }
 
     private fun setupViewModel() {
-        viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProvider(
             this,
-            DetailViewModelFactory(ApiHelper(RetrofitBuilder.apiService,this),this)
-        )[DetailViewModel::class.java]
-
+            DetailViewModelFactory(ApiHelper(RetrofitBuilder.apiService, this), this)
+        ).get(DetailViewModel::class.java)
     }
 
     override fun onClick(v: View?) {
