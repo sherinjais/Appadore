@@ -3,6 +3,7 @@ package com.appadore.ui.main.view.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.appadore.data.api.ApiHelper
@@ -77,9 +78,9 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupViewModel() {
-        viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService,this),this)
+            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService, this), this)
         ).get(MainActivityViewModel::class.java)
 
     }
