@@ -11,9 +11,9 @@ class DetailViewModel(private val mainRepository: MainRepository, val mContext: 
     fun getParticularData(id: Int): LiveData<List<ResponseItem>> {
         return mainRepository.getParticularData(id)
     }
-//    fun updateData(title: String, body: String,id: Int) {
-//        mainRepository.updateData(title,body,id)
-//    }
+    fun updateData(title: String, body: String,id: Int) {
+        mainRepository.updateData(title,body,id)
+    }
 //
 //    fun deleteData(id: Int) {
 //        return mainRepository.deleteData(id)

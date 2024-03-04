@@ -38,7 +38,7 @@ class MainActivity : BaseActivity() {
             .observe(this, Observer { it->
                 if (it.size!=0){
                     mAllGroupListAdapter.submitList(it)
-                    binding.rvData.adapter=mAllGroupListAdapter
+                    binding.rvData.adapter = mAllGroupListAdapter
                     mAllGroupListAdapter.notifyDataSetChanged()
                 }
                 else{

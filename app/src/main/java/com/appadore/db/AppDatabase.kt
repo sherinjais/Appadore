@@ -6,8 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.appadore.data.model.ResponseItem
 
-@Database(entities = [ResponseItem::class], version = 6, exportSchema = false)
-
+@Database(entities = [ResponseItem::class], version = 9, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun appDao() : AppDao
     companion object {

@@ -19,9 +19,9 @@ interface AppDao {
     @Query("SELECT * FROM groupTable Where id=:id")
     fun getParticularData(id: Int): LiveData<List<ResponseItem>>
 
-//    @Query("UPDATE groupTable SET title=:title,body=:body WHERE id=:id")
-//    fun updateData (title: String, body: String,id: Int)
-//
+    @Query("UPDATE groupTable SET name=:title,bio=:body WHERE id=:id")
+    fun updateData (title: String, body: String,id: Int)
+
 //    @Query("DELETE FROM groupTable WHERE id=:id")
 //    fun delete (id: Int)
 }

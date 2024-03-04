@@ -60,15 +60,15 @@ class MainRepository(private val apiHelper: ApiHelper, private val mContext: Bas
         return appDatabase!!.appDao().getParticularData(id)
     }
 
-//    fun updateData(title: String, body: String,id: Int) {
-//        appDatabase = initializeDB(mContext)
-//        CoroutineScope(Dispatchers.IO).launch {
-//            appDatabase!!.appDao().updateData(title,body,id)
-//        }
-//
-//
-//    }
-//
+    fun updateData(title: String, body: String,id: Int) {
+        appDatabase = initializeDB(mContext)
+        CoroutineScope(Dispatchers.IO).launch {
+            appDatabase!!.appDao().updateData(title,body,id)
+        }
+
+
+    }
+
 //    fun deleteData(id: Int) {
 //        appDatabase = initializeDB(mContext)
 //        CoroutineScope(Dispatchers.IO).launch {

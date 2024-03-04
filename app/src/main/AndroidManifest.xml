@@ -18,6 +18,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme"
             android:exported="true"/>
+        <activity android:name=".ui.main.view.activity.EditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"
+            android:exported="true"/>
         <activity android:name=".ui.main.view.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme"

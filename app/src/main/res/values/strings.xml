@@ -4,6 +4,9 @@
     <string name="ok">OK</string>
     <string name="head">Group</string>
     <string name="edit">Edit</string>
+    <string name="head_name">Name</string>
     <string name="head_about">About Group</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

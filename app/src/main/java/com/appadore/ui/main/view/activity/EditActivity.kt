@@ -1,6 +1,5 @@
 package com.appadore.ui.main.view.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -9,38 +8,37 @@ import com.appadore.R
 import com.appadore.data.api.ApiHelper
 import com.appadore.data.api.RetrofitBuilder
 import com.appadore.databinding.ActivityDetailBinding
+import com.appadore.databinding.ActivityEditBinding
 import com.appadore.databinding.ActivityMainBinding
 import com.appadore.ui.base.DetailViewModelFactory
 import com.appadore.ui.main.viewmodel.DetailViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 
-class DetailActivity : BaseActivity(),View.OnClickListener {
-    private var blogId: Int = 0
+class EditActivity : BaseActivity(),View.OnClickListener {
+    private var id: Int = 0
     private lateinit var viewModel: DetailViewModel
-    private lateinit var binding: ActivityDetailBinding
+    private lateinit var binding: ActivityEditBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         if(intent.hasExtra("id"))
-            blogId=intent.getIntExtra("id",0)
+            id=intent.getIntExtra("id",0)
         setupViewModel()
         setUpUI()
-        if(blogId!=0)
+        if(id!=0)
             fetchDataObserver()
     }
 
     private fun fetchDataObserver() {
-        viewModel.getParticularData(blogId)
+        viewModel.getParticularData(id)
             .observe(this, Observer {
                 if(it.isNotEmpty()){
-                    setData(it[0].name,it[0].bio)
-                    binding.name.text=it[0].name
-                    binding.role.text=it[0].userStatus
-                    binding.particip.text=it[0].participantCount.toString()
+                   // setData(it[0].name,it[0].bio)
+                    binding.etName.setText(it[0].name.toString())
                     binding.etNoteHeader.setText(it[0].bio.toString())
                     Glide.with(this)
                         .load(it[0].groupPhoto)
@@ -57,11 +55,8 @@ class DetailActivity : BaseActivity(),View.OnClickListener {
     }
 
     private fun setUpUI() {
-//        binding.imgUpdate.setOnClickListener(this)
-//        binding.imgDeleteData.setOnClickListener(this)
-
+        binding.tvUpdate.setOnClickListener(this)
         binding.back.setOnClickListener(this)
-        binding.tvEdit.setOnClickListener(this)
 
     }
 
@@ -79,16 +74,13 @@ class DetailActivity : BaseActivity(),View.OnClickListener {
             R.id.back->{
                 finish()
             }
-            R.id.tv_edit->{
-                val intent = Intent(this, EditActivity::class.java)
-                intent.putExtra("id",blogId)
-                startActivity(intent)
+
+            R.id.tv_update->{
+                viewModel.updateData(binding.etName.text.toString(),
+                    binding.etNoteHeader.text.toString(),this.id )
+                finish()
+
             }
-//            R.id.img_update->{
-//                viewModel.updateData(binding.etNoteHeader.text.toString(),binding.etNote.text.toString(),this.id )
-//                finish()
-//
-//            }
 //            R.id.img_delete_data->{
 //                viewModel.deleteData(this.id)
 //                finish()
